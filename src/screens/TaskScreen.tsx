@@ -56,7 +56,7 @@ const TaskScreen = () => {
       />
       <Modal visible={selectedTask !== null} onRequestClose={closeModal}>
         {selectedTask && (
-          <View>
+          <View style={{marginTop: 40}}>
             <Text>Title: {selectedTask.title}</Text>
             <Text>Description: {selectedTask.description}</Text>
             <Text>Status: {selectedTask.completed ? "Completed" : "Incomplete"}</Text>
