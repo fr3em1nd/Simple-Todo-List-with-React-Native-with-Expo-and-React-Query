@@ -56,7 +56,10 @@ ios:
 `expo build:ios`
 
 
-once the commands runs and completed(considering you have credentials for iOS & Google Developer), you shoudl be able to download the .AAB files and .xarchive to be uploaded to their respective stores.
+once the commands runs and completed(considering you have credentials for iOS & Google Developer), you shoudl be able to download the .AAB files and .xarchive from Expo.io website to be uploaded to their respective stores.
+
+expo go have their own kind of CI/CD integration that automatically builds your app.
+
 
 Fast Deployment using Expo Go:
 - Fast deployment doesnt build an app package, instead, it'll allow you to use your local device to scan the QR code to run the app like a dev environment.
