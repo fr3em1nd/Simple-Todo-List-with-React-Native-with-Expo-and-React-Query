@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, FlatList, Button, TextInput, Modal } from "react-native";
+import { View, Text, FlatList, TextInput, Modal } from "react-native";
 import { useTasks, useAddTask, useToggleTask } from "../hooks/useTasks";
 import TaskItem from "../components/TaskItem";
+import styles from './TaskScreen.style';
+import Button from '../components/Button';
 
 const TaskScreen = () => {
   const [newTask, setNewTask] = useState<string>("");
@@ -35,28 +37,32 @@ const TaskScreen = () => {
   if (isError) return <Text>Error occurred</Text>;
 
   return (
-    <View style={{marginTop: 40}}>
+    <View   style={styles.mainContainer} >
       <TextInput
-        style={{ borderColor: "gray", borderWidth: 1, marginBottom: 10, padding: 10 }}
+         style={styles.input} 
         placeholder="New Task"
         value={newTask}
         onChangeText={text => setNewTask(text)}
       />
       <TextInput
-        style={{ borderColor: "gray", borderWidth: 1, marginBottom: 10, padding: 10 }}
+         style={styles.input} 
         placeholder="Task Description"
         value={newDescription}
         onChangeText={text => setNewDescription(text)}
       />
-      <Button title="Add Task" onPress={addTask} />
+   
+      <Button title="Add New Task" onPress={addTask} />
       <FlatList
         data={tasks}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <TaskItem task={item} toggleTask={toggleTask} onPress={() => openModal(item)} />}
       />
-      <Modal visible={selectedTask !== null} onRequestClose={closeModal}>
+      <Modal  visible={selectedTask !== null} onRequestClose={closeModal}>
+
+ 
         {selectedTask && (
-          <View style={{marginTop: 40}}>
+          <View style={styles.modalContainer}>
+                 <Text style={styles.modalMainTitle}>Task Details</Text>
             <Text>Title: {selectedTask.title}</Text>
             <Text>Description: {selectedTask.description}</Text>
             <Text>Status: {selectedTask.completed ? "Completed" : "Incomplete"}</Text>

@@ -38,7 +38,9 @@ example --
 to run from your local simulators and emulatrs simply:
 
 › Press a │ open Android
+
 › Press i │ open iOS simulator
+
 › Press w │ open web
 
 
