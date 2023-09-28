@@ -1,4 +1,5 @@
-# solomon-task-todo-app
+# Todo List with React Native with Expo and React-Query
+
  this is developer demo using react-query for state management
 
 
